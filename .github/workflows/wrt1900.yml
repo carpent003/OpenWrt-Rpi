@@ -6,17 +6,22 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build bcm27xx/bcm2711 openwrt
+name: Build wrt1900 openwrt
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 18 * * *
+  
+  push:
+    branches: 
+      - master
+  
+  #schedule:
+  #  - cron: 0 18 * * *
   # watch:
   #   types: started
 
 env:
-  CONFIG_FILE: config/bcm27xx/bcm2711.config
+  CONFIG_FILE: config/bcm27xx/wrt1900.config
   SOURCE_URL: https://github.com/immortalwrt/immortalwrt
   SOURCE_BRANCH: openwrt-18.06-k5.4
   DIY_SH: scripts/custom.sh
